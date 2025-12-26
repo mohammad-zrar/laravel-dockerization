@@ -27,8 +27,8 @@ A complete Docker setup for developing Laravel applications with Nginx, PHP-FPM,
 ### 1. Clone or Download This Repository
 
 ```bash
-git clone <repository-url>
-cd dockerized-laravel-project-starter
+git clone git@github.com:mohammad-zrar/laravel-dockerization.git
+cd laravel-dockerization
 ```
 
 ### 2. Create Your Laravel Project
@@ -67,8 +67,8 @@ Update the `.env` file in the `src/` directory with your MySQL database credenti
 DB_CONNECTION=mysql
 DB_HOST=mysql
 DB_PORT=3306
-DB_DATABASE=homestead
-DB_USERNAME=homestead
+DB_DATABASE=demo_db
+DB_USERNAME=laravel
 DB_PASSWORD=secret
 ```
 

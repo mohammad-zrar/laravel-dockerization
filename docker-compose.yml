@@ -4,17 +4,20 @@ services:
     ports:
       - "8000:80"
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./src:/var/www/html
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
     depends_on:
       - php
     networks:
       - laravel
   php:
     build:
-      context: ./dockerfiles
-      dockerfile: php.dockerfile
+      context: .
+      dockerfile: ./dockerfiles/php.dockerfile
     volumes:
       - ./src:/var/www/html:delegated
+    ports:
+      - "3000:9000"
     networks:
       - laravel
   mysql:
@@ -29,6 +32,8 @@ services:
       dockerfile: composer.dockerfile
     volumes:
       - ./src:/var/www/html:delegated
+    networks:
+      - laravel
 
   # artisan:
   # npm:
